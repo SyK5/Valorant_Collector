@@ -1,0 +1,85 @@
+@keyframes titelColor {
+  20% {color: #0b1b24;}
+  40% {color: #04274a;}
+  60% {color: #0c3965}
+  80% {color: #2179f6}
+  100% {color: #94e0e4}
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body{
+
+  .topBar{
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+    background-color: #646cff;
+
+    .NavLink{
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 50rem;
+    background-color: #646cff;
+    padding-right: 8rem;
+    padding-top: 1rem;
+    a:hover{
+      transition: .3s;
+      color: white;
+      text-decoration: underline;
+    }
+    }
+
+    a{
+      color: #211333;
+    }
+    
+    .search{
+      position: relative;
+      top: .5rem;
+    }
+    .titel{
+      display: flex;
+      padding-left: 8rem;
+      img{
+        position: relative;
+        top: .3rem;
+        width: 5rem;
+        height: 5rem;
+      }
+
+      // IMG COLORS
+      /*
+        #5ee1e9
+        #0b1b24
+        #2179f6
+        #186f6d
+        #043d34
+        #0c3965
+        #04274a
+      */
+
+      .valoTitel{
+        padding-left: 1rem;
+        font-family: Valorant;
+        color: #04274a;
+      }
+      .titelHover {
+        animation-name: titelColor;
+        animation-duration: .2s;
+        animation-fill-mode: forwards;
+    }
+    }
+  }
+}

@@ -1,24 +1,27 @@
 import { useState } from 'react'
-import './App.css'
+import { Routes, Route, Link } from "react-router-dom";
+
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Layout from './components/Layout';
+import NotFound from './components/NotFound';
+
+import './App.scss'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Hello, i start Creating</h1>
-
-      <div>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <a href="#">test A</a>
-      <p>
-        Vite createt
-      </p>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='about' element={<About />} />
+        <Route path='contact' element={<Contact />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
 }
