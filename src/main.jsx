@@ -5,11 +5,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 
 import './index.css'
+import Footer from './components/Footer.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
     <App />
+    <Footer />
     </Router>
   </React.StrictMode>,
 )
