@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { Routes, Route, Link } from "react-router-dom";
 
-import Skins from './components/Skins';
-import About from './components/About';
-import Contact from './components/Contact';
 import Layout from './components/Layout';
-import NotFound from './components/NotFound';
-import Home from './components/Home';
+import Skins from './components/route/Skins';
+import About from './components/route/About';
+import Contact from './components/route/Contact';
+import NotFound from './components/route/NotFound';
+import Home from './components/route/Home';
+import News from './components/route/News';
+import Armory from './components/route/Armory';
 
 import './App.scss'
-import News from './components/News';
-import Armory from './components/Armory';
+
 
 function App() {
   const [count, setCount] = useState(0)
