@@ -2,23 +2,31 @@ export const ApiInitial = {
     bundle: [],
     gear: [],
     weapons: [],
+    agent: [],
+    rank: [],
 };
 
 export const ApiReducer = (state, action) => {
 
     switch (action.type) {
       
-        case "Bundle":
+        case 'Bundle':
         return {
           ...state,
-          bundle: [...action.payload.data],
+          bundle: [...action.payload],
         };
 
-        case "Weapons":
+        case 'Agent':
             return {
-              
+                ...state,
+                agent: [...action.payload],
             };
-          
+
+        case 'Rank':
+            return{
+                ...state,
+                rank: [...action.payload]
+            }
         default: return state;
     }
   };

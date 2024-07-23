@@ -1,6 +1,6 @@
-const BundleF = async() => {
-    const bundleUrl = 'https://valorant-api.com/v1/bundles';
-    const response = await fetch(bundleUrl);
+const RankF = async() => {
+    const RankUrl = 'https://valorant-api.com/v1/competitivetiers';
+    const response = await fetch(RankUrl);
     if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
@@ -8,4 +8,4 @@ const BundleF = async() => {
     return json.data;
 }
 
-export default BundleF;
+export default RankF;

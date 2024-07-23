@@ -156,6 +156,12 @@ body{
           border-right: .1rem solid #04274a;
           cursor: auto;
         }
+        .active {
+          animation-name: navbar;
+          animation-duration: .3s;
+          animation-fill-mode: forwards;
+          animation-direction: reverse;
+        }
         *:hover{
           animation-name: navbar;
           animation-duration: .3s;
@@ -163,9 +169,117 @@ body{
           animation-direction: reverse;
         }
       }
-      .window{
+
+      .window {
         height: 50vh;
+        @include fontval();
+      
+        .agents-Window {
+          display: grid;
+          grid-template-areas: 
+            ". agent-Titel agent-Titel agent-Titel agent-Titel ."
+            "agent1 agent2 agent3 agent4 agent5 ."
+            "agent6 agent7 agent8 agent9 agent10 .";
+          grid-template-columns: repeat(5, 1fr);
+          row-gap: 1.1rem;
+          align-items: center;
+      
+          .agent-Titel {
+            grid-area: agent-Titel;
+            grid-column: span 5;
+          }
+      
+          .agent {
+            padding: 8px;
+            text-align: center;
+      
+            &.agent1 { grid-area: agent1; background-color: #217af6bc; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
+            &.agent2 { grid-area: agent2; background-color: #217af6bc;}
+            &.agent3 { grid-area: agent3; background-color: #217af6bc;}
+            &.agent4 { grid-area: agent4; background-color: #217af6bc;}
+            &.agent5 { grid-area: agent5; background-color: #217af6bc; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
+            &.agent6 { grid-area: agent6; background-color: #f6213aaf; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
+            &.agent7 { grid-area: agent7; background-color: #f6213aaf;}
+            &.agent8 { grid-area: agent8; background-color: #f6213aaf;}
+            &.agent9 { grid-area: agent9; background-color: #f6213aaf;}
+            &.agent10 { grid-area: agent10; background-color: #f6213aaf; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
+            
+            img {
+              width: 100%;
+              height: auto;
+            }
+      
+            h3 {
+              margin-top: 10px;
+              margin: 0;
+            }
+          }
+        }
+
+        .rank-Window{
+          grid-template-columns: repeat(3, 1fr);
+          display: grid;
+          grid-template-areas:
+            'rankTitel rankTitel rankTitel'
+            'rankImg arrow maxRank'
+            '. selection .';
+            row-gap: 3rem;
+            margin: 1rem;
+            align-items: center;
+            justify-items: center;
+          .rankImgCon{
+            border-radius: 50%;
+            background-color: #242424;
+            width: 15rem;
+            height: 15rem;
+            display: flex;
+            justify-content: center;
+            grid-area: rankImg;
+           .rankImg{
+            object-fit: contain;
+            width: 12rem;
+            justify-content: center;
+          } 
+          }
+          .arrowrank{
+            grid-area: arrow;
+            width: 100%;
+            transform: rotate(90deg);
+          }
+          .maxRankImgCon{
+            border-radius: 50%;
+            background-color: #242424;
+            width: 15rem;
+            height: 15rem;
+            display: flex;
+            justify-content: center;
+            grid-area: maxRank;
+           .maxRank{
+            width: 100%;
+          } 
+          }
+          
+          .selectForm{
+            select{
+              font-size: 1.5rem;
+              padding: 1rem;
+            }    
+            grid-area: selection;
+            grid-column: span 3;
+
+          }
+          .rankTitel{
+            grid-area: rankTitel;
+            font-size: 3rem;
+            grid-column: span 3;
+          }
+        }
       }
+      
+      
+      
+
+
       .mainImg{
         height: 25rem;
         margin: 1rem;

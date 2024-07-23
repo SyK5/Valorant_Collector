@@ -1,6 +1,6 @@
-const BundleF = async() => {
-    const bundleUrl = 'https://valorant-api.com/v1/bundles';
-    const response = await fetch(bundleUrl);
+const AgentF = async() => {
+    const AgentUrl = 'https://valorant-api.com/v1/agents';
+    const response = await fetch(AgentUrl);
     if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
@@ -8,4 +8,4 @@ const BundleF = async() => {
     return json.data;
 }
 
-export default BundleF;
+export default AgentF;
