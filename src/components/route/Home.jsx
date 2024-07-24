@@ -6,6 +6,7 @@ import AgentF from "../../fetch/Agent.js";
 import RankF from "../../fetch/Rank.js";
 
 import SelectRank from '../SelectRank.jsx'
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const { Api, ApiDispatch } = useContext(ApiContext);
@@ -69,6 +70,7 @@ const Home = () => {
     fetchAgents();
     fetchRank();
     barToggle("late");
+    console.log(Api);
   }, [ApiDispatch]);
 
   Api.agent.length === 0
@@ -94,7 +96,7 @@ const Home = () => {
       ));
 
   return (
-    <>
+    <div className="HomeCon">
       <div className="mainCon">
         <div className="mainCon1">
           <div className="mainTab">
@@ -161,10 +163,11 @@ const Home = () => {
             )}
             {bar.rank && (
               <div className="rank-Window">
-                <h1 className='rankTitel' >Give you Rank Here</h1>
+                <h1 className='rankTitel' >Give you Rank Here and see up to wich rank play able </h1>
                 <SelectRank Api={Api} actualRank={selectedRank} />
                 <form className="selectForm">
                   <select value={selectedRank} onChange={handleChange} className='selectRank'>
+                    <option>Select Rank</option>
                     {Api.rank.length === 0
                       ? ""
                       : Api.rank.map((rank, i) =>
@@ -184,8 +187,23 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="sideCon">{/* Side content goes here */}</div>
-    </>
+      <div className="sideCon">
+        <div className="sideWindow">
+          <ul className="Skinlist">
+            <h3><NavLink to={'skins'}>Skins</NavLink></h3>
+            <li><NavLink to={'skins'}>All Skins</NavLink></li>
+            <li><NavLink to={'skins'}>Skins by Type</NavLink></li>
+            <li><NavLink to={'skins'}>Bundles</NavLink></li>
+          </ul>
+          <ul className="Weaponlist">
+            <h3><NavLink to={'armory'}>Weapon</NavLink></h3>
+            <li><NavLink to={'armory'}>Weapon list</NavLink></li>
+            <li><NavLink to={'armory'}>Weapon stats</NavLink></li>
+            <li><NavLink to={'armory'}>Weapon costs</NavLink></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

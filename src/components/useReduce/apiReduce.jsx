@@ -11,10 +11,10 @@ export const ApiReducer = (state, action) => {
     switch (action.type) {
       
         case 'Bundle':
-        return {
-          ...state,
-          bundle: [...action.payload],
-        };
+            return {
+                ...state,
+                bundle: [...action.payload],
+            };
 
         case 'Agent':
             return {
@@ -26,6 +26,12 @@ export const ApiReducer = (state, action) => {
             return{
                 ...state,
                 rank: [...action.payload]
+            }
+        
+        case 'Weapon':
+            return{
+                ...state,
+                weapons: [...action.payload]
             }
         default: return state;
     }

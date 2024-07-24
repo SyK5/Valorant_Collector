@@ -25,6 +25,21 @@
   font-size: 1.6rem;
 }
 
+@mixin rankImgselection {
+  object-fit: contain;
+  width: 12rem;
+  justify-content: center;
+}
+
+@mixin conWindow ($width, $height) {
+  background-color: white;
+  width: $width;
+  height: $height;
+  color: #04274a;
+  border-top: .5rem solid #2179f6;
+  border-radius: .5rem;
+  border-width: 1rem;
+}
 
 #root {
   margin: 0 auto;
@@ -128,171 +143,299 @@ body{
     }
   }
 
-  .mainCon{
-    width: 50rem;
+  .HomeCon{
+    display: flex;
+    justify-content: space-around;
     height: 120vh;
-    .mainCon1{
-      background-color: white;
-      width: 100%;
-      height: 446px;
-      color: #04274a;
-      margin: 10rem;
-      border-top: .5rem solid #2179f6;
-      border-radius: .5rem;
-      border-width: 1rem;
-      .mainTab{
-        @include fontval();
-        display: flex;
-        margin: 1rem;
-        align-items: center;
-        justify-content: flex-start;
-        *{
-          margin-left: 1rem;
-          margin-right: 1rem;
-          cursor: pointer;
-        }
-        .break{
-          width: .1rem;
-          height: 2rem;
-          border-right: .1rem solid #04274a;
-          cursor: auto;
-        }
-        .active {
-          animation-name: navbar;
-          animation-duration: .3s;
-          animation-fill-mode: forwards;
-          animation-direction: reverse;
-        }
-        *:hover{
-          animation-name: navbar;
-          animation-duration: .3s;
-          animation-fill-mode: forwards;
-          animation-direction: reverse;
-        }
-      }
-
-      .window {
-        height: 50vh;
-        @include fontval();
-      
-        .agents-Window {
-          display: grid;
-          grid-template-areas: 
-            ". agent-Titel agent-Titel agent-Titel agent-Titel ."
-            "agent1 agent2 agent3 agent4 agent5 ."
-            "agent6 agent7 agent8 agent9 agent10 .";
-          grid-template-columns: repeat(5, 1fr);
-          row-gap: 1.1rem;
+    align-items: center;
+    .mainCon{
+      width: 50rem;
+      .mainCon1{
+        @include conWindow(100%, 446px);
+        .mainTab{
+          @include fontval();
+          display: flex;
+          margin: 1rem;
           align-items: center;
-      
-          .agent-Titel {
-            grid-area: agent-Titel;
-            grid-column: span 5;
+          justify-content: flex-start;
+          *{
+            margin-left: 1rem;
+            margin-right: 1rem;
+            cursor: pointer;
           }
-      
-          .agent {
-            padding: 8px;
-            text-align: center;
-      
-            &.agent1 { grid-area: agent1; background-color: #217af6bc; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
-            &.agent2 { grid-area: agent2; background-color: #217af6bc;}
-            &.agent3 { grid-area: agent3; background-color: #217af6bc;}
-            &.agent4 { grid-area: agent4; background-color: #217af6bc;}
-            &.agent5 { grid-area: agent5; background-color: #217af6bc; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
-            &.agent6 { grid-area: agent6; background-color: #f6213aaf; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
-            &.agent7 { grid-area: agent7; background-color: #f6213aaf;}
-            &.agent8 { grid-area: agent8; background-color: #f6213aaf;}
-            &.agent9 { grid-area: agent9; background-color: #f6213aaf;}
-            &.agent10 { grid-area: agent10; background-color: #f6213aaf; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
-            
-            img {
-              width: 100%;
-              height: auto;
-            }
-      
-            h3 {
-              margin-top: 10px;
-              margin: 0;
-            }
+          .break{
+            width: .1rem;
+            height: 2rem;
+            border-right: .1rem solid #04274a;
+            cursor: auto;
+          }
+          .active {
+            animation-name: navbar;
+            animation-duration: .3s;
+            animation-fill-mode: forwards;
+            animation-direction: reverse;
+          }
+          *:hover{
+            animation-name: navbar;
+            animation-duration: .3s;
+            animation-fill-mode: forwards;
+            animation-direction: reverse;
           }
         }
-
-        .rank-Window{
-          grid-template-columns: repeat(3, 1fr);
-          display: grid;
-          grid-template-areas:
-            'rankTitel rankTitel rankTitel'
-            'rankImg arrow maxRank'
-            '. selection .';
-            row-gap: 3rem;
-            margin: 1rem;
+  
+        .window {
+          height: 50vh;
+          @include fontval();
+        
+          .agents-Window {
+            display: grid;
+            grid-template-areas: 
+              ". agent-Titel agent-Titel agent-Titel agent-Titel ."
+              "agent1 agent2 agent3 agent4 agent5 ."
+              "agent6 agent7 agent8 agent9 agent10 .";
+            grid-template-columns: repeat(5, 1fr);
+            row-gap: 1.1rem;
             align-items: center;
-            justify-items: center;
-          .rankImgCon{
-            border-radius: 50%;
-            background-color: #242424;
-            width: 15rem;
-            height: 15rem;
-            display: flex;
-            justify-content: center;
-            grid-area: rankImg;
-           .rankImg{
-            object-fit: contain;
-            width: 12rem;
-            justify-content: center;
-          } 
+        
+            .agent-Titel {
+              grid-area: agent-Titel;
+              grid-column: span 5;
+            }
+        
+            .agent {
+              padding: 8px;
+              text-align: center;
+        
+              &.agent1 { grid-area: agent1; background-color: #217af6bc; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
+              &.agent2 { grid-area: agent2; background-color: #217af6bc;}
+              &.agent3 { grid-area: agent3; background-color: #217af6bc;}
+              &.agent4 { grid-area: agent4; background-color: #217af6bc;}
+              &.agent5 { grid-area: agent5; background-color: #217af6bc; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
+              &.agent6 { grid-area: agent6; background-color: #f6213aaf; border-top-left-radius: 2rem; border-bottom-left-radius: 2rem; }
+              &.agent7 { grid-area: agent7; background-color: #f6213aaf;}
+              &.agent8 { grid-area: agent8; background-color: #f6213aaf;}
+              &.agent9 { grid-area: agent9; background-color: #f6213aaf;}
+              &.agent10 { grid-area: agent10; background-color: #f6213aaf; border-top-right-radius: 2rem; border-bottom-right-radius: 2rem; }
+              
+              img {
+                width: 100%;
+                height: auto;
+              }
+        
+              h3 {
+                margin-top: 10px;
+                margin: 0;
+              }
+            }
           }
-          .arrowrank{
-            grid-area: arrow;
-            width: 100%;
-            transform: rotate(90deg);
+  
+          .rank-Window{
+            grid-template-columns: repeat(3, 1fr);
+            display: grid;
+            grid-template-areas:
+              'rankTitel rankTitel rankTitel'
+              'rankImg arrow maxRank'
+              '. selection .';
+              row-gap: 3rem;
+              margin: 1rem;
+              align-items: center;
+              justify-items: center;
+            .rankImgCon{
+              border-radius: 50%;
+              background-color: #242424;
+              width: 15rem;
+              height: 15rem;
+              display: flex;
+              justify-content: center;
+              grid-area: rankImg;
+             .rankImg{
+              @include rankImgselection;
+            } 
+            }
+            .arrowrank{
+              grid-area: arrow;
+              width: 100%;
+              transform: rotate(90deg);
+            }
+            .maxRankImgCon{
+              border-radius: 50%;
+              background-color: #242424;
+              width: 15rem;
+              height: 15rem;
+              display: flex;
+              justify-content: center;
+              grid-area: maxRank;
+             .maxRank{
+              @include rankImgselection;
+            } 
+            }
+            
+            .selectForm{
+              select{
+                font-size: 1.5rem;
+                padding: 1rem;
+              }    
+              grid-area: selection;
+              grid-column: span 3;
+  
+            }
+            .rankTitel{
+              grid-area: rankTitel;
+              font-size: 3rem;
+              grid-column: span 3;
+            }
           }
-          .maxRankImgCon{
-            border-radius: 50%;
-            background-color: #242424;
-            width: 15rem;
-            height: 15rem;
-            display: flex;
-            justify-content: center;
-            grid-area: maxRank;
-           .maxRank{
-            width: 100%;
-          } 
-          }
-          
-          .selectForm{
-            select{
-              font-size: 1.5rem;
-              padding: 1rem;
-            }    
-            grid-area: selection;
-            grid-column: span 3;
-
-          }
-          .rankTitel{
-            grid-area: rankTitel;
+        }
+        
+        .mainImg{
+          height: 25rem;
+          margin: 1rem;
+        }
+      }
+      .titel{
+        padding-bottom: 5rem;
+        @include fontval();
+        font-weight: 900;
+        font-size: 2rem;
+        margin: 0;
+        padding-bottom: 1rem;
+      }
+    }
+  
+    .sideCon{
+      width: 50rem;
+      .sideWindow{
+        @include conWindow(100%, 446px);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .Skinlist{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
+          h3{
+            @include fontval;
             font-size: 3rem;
-            grid-column: span 3;
+          }
+          li{
+            @include fontval;
+            padding-left: 1em;
+            text-indent: -1em;
+            a{
+              color: #0c3965;
+            }
+            a:hover{
+            color: #2179f6;
+            }
+          }
+          li:before {
+            content: "-";
+            padding-right: 5px;
+          }
+          li:first-child{
+            margin-top: 3rem;
+          }
+          li:hover{
+            translate: 1rem 0;
+            transition: .3s;
+          }
+        }
+        .Weaponlist{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
+          h3{
+            @include fontval;
+            font-size: 3rem;
+          }
+          li{
+            @include fontval;
+            padding-left: 1em;
+            text-indent: -1em;
+            a{
+              color: #0c3965;
+            }
+            a:hover{
+              color: #2179f6;
+              }
+          }
+          li:before {
+            content: "-";
+            padding-right: 5px;
+          }
+          li:first-child{
+            margin-top: 3rem;
+          }
+          li:hover{
+            translate: 1rem 0;
+            transition: .3s;
           }
         }
       }
-      
-      
+    }
+  }
+  .SkinsCon{
+    @include conWindow(70%, 10);
+    margin: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    
+
+    .Weapons {
+      display: grid;
+      grid-template-areas: 
+      'Weapon1 Weapon2 Weapon3'
+      'Weapon4 Weapon5 Weapon6'
+      'Weapon7 Weapon8 Weapon9'
+      'Weapon10 Weapon11 Weapon12'
+      'Weapon13 Weapon14 Weapon15'
+      'Weapon16 Weapon17 Weapon18'
+      '. Weapon19 .'
+      ;
+      grid-template-columns: repeat(3, 1fr);
       
 
+    .Weapon {
+      padding: 8px;
+      text-align: center;
 
-      .mainImg{
-        height: 25rem;
-        margin: 1rem;
+      &.Weapon1 { grid-area: Weapon1; background-color: #217af6bc;}
+      &.Weapon2 { grid-area: Weapon2; background-color: #217af6bc;}
+      &.Weapon3 { grid-area: Weapon3; background-color: #217af6bc;}
+      &.Weapon4 { grid-area: Weapon4; background-color: #217af6bc;}
+      &.Weapon5 { grid-area: Weapon5; background-color: #217af6bc;}
+      &.Weapon6 { grid-area: Weapon6; background-color: #217af6bc;}
+      &.Weapon7 { grid-area: Weapon7; background-color: #217af6bc;}
+      &.Weapon8 { grid-area: Weapon8; background-color: #217af6bc;}
+      &.Weapon9 { grid-area: Weapon9; background-color: #217af6bc;}
+      &.Weapon10 { grid-area: Weapon10; background-color: #217af6bc;}
+      &.Weapon11 { grid-area: Weapon11; background-color: #217af6bc;}
+      &.Weapon12 { grid-area: Weapon12; background-color: #217af6bc;}
+      &.Weapon13 { grid-area: Weapon13; background-color: #217af6bc;}
+      &.Weapon14 { grid-area: Weapon14; background-color: #217af6bc;}
+      &.Weapon15 { grid-area: Weapon15; background-color: #217af6bc;}
+      &.Weapon16 { grid-area: Weapon16; background-color: #217af6bc; border-bottom-left-radius: 5rem;}
+      &.Weapon17 { grid-area: Weapon17; background-color: #217af6bc;}
+      &.Weapon18 { grid-area: Weapon18; background-color: #217af6bc; border-bottom-right-radius: 5rem;}
+      &.Weapon19 { grid-area: Weapon19; background-color: #217af6bc; border-bottom-left-radius: 5rem; border-bottom-right-radius: 5rem;}
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      h3 {
+        margin-top: 10px;
+        margin: 0;
       }
     }
-    .titel{
-      padding-bottom: 5rem;
-      @include fontval();
-      font-weight: 900;
-      font-size: 2rem;
-      margin: 0;
-      padding-bottom: 1rem;
-    }
+    
+  }
   }
 }
