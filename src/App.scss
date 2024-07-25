@@ -381,7 +381,7 @@ body{
     }
   }
   .SkinsCon{
-    @include conWindow(70%, 10);
+    @include conWindow(70%, auto);
     margin: auto;
     margin-top: 10rem;
     margin-bottom: 10rem;
@@ -437,5 +437,49 @@ body{
     }
     
   }
+  }
+
+  .ArmorCon{
+    @include conWindow(45%, auto);
+    margin: auto;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    display: flex;
+    justify-content: space-between;
+    table{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      thead{
+        width: 100%;
+        tr{
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          *{
+            text-align: center;
+          }
+          th:last-child{
+            grid-column: span 2;
+          }
+        }
+      }
+      tbody{
+        width: 100%;
+        tr{
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          *{
+            text-align: center;
+          }
+          td:last-child{
+            grid-column: span 2;
+
+          }
+        }
+      }
+    }
   }
 }
