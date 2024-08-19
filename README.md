@@ -5,3 +5,6 @@
 
 
 ## still in dev. not finished yet
+
+
+### we working with api from ValorantAPI
