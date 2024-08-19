@@ -2,3 +2,6 @@
 
 
 # Valorant_Collector
+
+
+## still in dev. not finished yet
