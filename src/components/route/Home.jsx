@@ -96,6 +96,8 @@ const Home = () => {
       ));
 
   return (
+    <>
+    <h1>Webseite Noch in entwicklung</h1>
     <div className="HomeCon">
       <div className="mainCon">
         <div className="mainCon1">
@@ -226,6 +228,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
